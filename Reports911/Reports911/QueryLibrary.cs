@@ -9,7 +9,8 @@ namespace Reports911
     {
         public static string GetAllEMTs()
         {
-            return "WRITE QUERY HERE";
+            // Hi student, this is an example :)
+            return "SELECT * FROM Emts";
         }
 
         public static string GetAllBaseStations()
