@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Data.SqlServerCe;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -19,8 +20,15 @@ namespace Reports911
         {
             InitializeComponent();
 
-            var db = new ErisDbContext();
-            DatabaseManager.Seed(db);
+            try
+            {
+                var db = new ErisDbContext();
+                DatabaseManager.Seed(db);
+            }
+            catch(IOException e)
+            {
+                MessageBox.Show("Error: Could not connect to db. Hey student, are you sure the database file is not open anywhere else (even Visual Studio Server Explorer will cause problems)? \r\n\r\n("+ e.Message + ")");
+            }
 
             dtgrdReportOutput.DataMember = "PRIMARY";
         }
