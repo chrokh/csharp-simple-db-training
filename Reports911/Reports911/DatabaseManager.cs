@@ -7,14 +7,6 @@ namespace Reports911
 {
     class DatabaseManager
     {
-        public static void DropAndReseed(ErisDbContext context)
-        {
-            context.Database.Delete();
-            context.Database.Create();
-
-            Seed(context);
-        }
-
         public static void Seed(ErisDbContext context)
         {
             List<BaseStation> basestations = new List<BaseStation>();
@@ -24,7 +16,7 @@ namespace Reports911
             // basestations
             for (int i = 0; i < RandomFactory.BASE_STATION_NAMES.Count-1; i++)
                 basestations.Add(new BaseStation{
-                    Name = RandomFactory.EmtName()
+                    Name = RandomFactory.BaseStationName()
                 });
 
             // incidents
