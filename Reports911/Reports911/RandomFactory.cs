@@ -5,10 +5,17 @@ using System.Text;
 
 namespace Reports911
 {
+    enum RandomFactoryReturnType
+    {
+        BASESTATION,
+        EMT,
+        INCIDENT
+    }
+
     class RandomFactory
     {
         private static Random rnd = new Random();
-        public static List<string> BASE_STATION_NAMES = new List<string>(){
+        private static List<string> _basestation_names = new List<string>(){
             "Ekonomikum",
             "Matematikum",
             "Uppsala Slott",
@@ -17,14 +24,14 @@ namespace Reports911
             "Engelska parken",
             "SLU"
         };
-        public static List<string> EMT_NAMES = new List<string>(){
+        private static List<string> _emt_names = new List<string>(){
             "Räddningspatrullen",
             "Hundpatrullen",
             "Gosskören",
             "Bagarna",
             "Universitetsutryckningen"
         };
-        public static List<string> INCIDENT_DESCRIPTIONS = new List<string>(){
+        private static List<string> _incident_descriptions = new List<string>(){
             "En hund har fastnat i ett träd!",
             "Hjälp det brinner!",
             "Det är ett bankrån!",
@@ -32,21 +39,30 @@ namespace Reports911
             "Banken, banken, banken!",
             "Det brinner i grannhuset"};
 
-        public static string EmtName()
+
+        /*
+         * String generation
+         */
+        public static bool HasMoreOf(RandomFactoryReturnType kind)
         {
-            return EMT_NAMES[rnd.Next(0, EMT_NAMES.Count - 1)];
+            ICollection<string> collection = _getCollectionOfType(kind);
+            return collection.Count > 0;
+        }
+        public static string NextOf(RandomFactoryReturnType kind)
+        {
+            if(!HasMoreOf(kind))
+                return null;
+
+            ICollection<string> collection = _getCollectionOfType(kind);
+            string res = collection.Last();
+            collection.Remove(res);
+            return res;
         }
 
-        public static string BaseStationName()
-        {
-            return BASE_STATION_NAMES[rnd.Next(0, BASE_STATION_NAMES.Count - 1)];
-        }
 
-        public static string IncidentDescription()
-        {
-            return INCIDENT_DESCRIPTIONS[rnd.Next(0, INCIDENT_DESCRIPTIONS.Count - 1)];
-        }
-
+        /*
+         * Public random-helpers
+         */
         public static bool Bool()
         {
             return rnd.Next(0, 100) > 50;
@@ -54,6 +70,24 @@ namespace Reports911
         public static int Number(int min, int max)
         {
             return rnd.Next(min, max);
+        }
+
+
+        /*
+         * privates
+         */
+        private static ICollection<string> _getCollectionOfType(RandomFactoryReturnType kind)
+        {
+            switch (kind)
+            {
+                case RandomFactoryReturnType.BASESTATION:
+                    return _basestation_names;
+                case RandomFactoryReturnType.INCIDENT:
+                    return _incident_descriptions;
+                case RandomFactoryReturnType.EMT:
+                default:
+                    return _emt_names;
+            }
         }
     }
 }

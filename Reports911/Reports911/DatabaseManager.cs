@@ -13,25 +13,29 @@ namespace Reports911
             List<Incident> incidents = new List<Incident>();
             List<Emt> emts = new List<Emt>();
 
+
             // basestations
-            for (int i = 0; i < RandomFactory.BASE_STATION_NAMES.Count-1; i++)
+            while(RandomFactory.HasMoreOf(RandomFactoryReturnType.BASESTATION))
                 basestations.Add(new BaseStation{
-                    Name = RandomFactory.BaseStationName()
+                    Name = RandomFactory.NextOf(RandomFactoryReturnType.BASESTATION)
                 });
+
 
             // incidents
-            for (int i = 0; i < RandomFactory.INCIDENT_DESCRIPTIONS.Count-1; i++)
+            while(RandomFactory.HasMoreOf(RandomFactoryReturnType.INCIDENT))
                 incidents.Add(new Incident{
                     Active = RandomFactory.Bool(),
-                    Description = RandomFactory.IncidentDescription()
+                    Description = RandomFactory.NextOf(RandomFactoryReturnType.INCIDENT)
                 });
 
+
             // emts
-            for (int i = 0; i < RandomFactory.EMT_NAMES.Count-1; i++)
+            while (RandomFactory.HasMoreOf(RandomFactoryReturnType.EMT))
             {
-                BaseStation bs = basestations[RandomFactory.Number(0, basestations.Count-1)];
-                emts.Add(new Emt{
-                    Name = RandomFactory.EmtName(),
+                BaseStation bs = basestations[RandomFactory.Number(0, basestations.Count - 1)];
+                emts.Add(new Emt
+                {
+                    Name = RandomFactory.NextOf(RandomFactoryReturnType.EMT),
                     BaseStation = bs
                 });
             }
