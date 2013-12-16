@@ -84,11 +84,12 @@
             // 
             // btnQueryAllEMTs
             // 
+            this.btnQueryAllEMTs.ForeColor = System.Drawing.Color.MediumVioletRed;
             this.btnQueryAllEMTs.Location = new System.Drawing.Point(6, 19);
             this.btnQueryAllEMTs.Name = "btnQueryAllEMTs";
             this.btnQueryAllEMTs.Size = new System.Drawing.Size(181, 23);
             this.btnQueryAllEMTs.TabIndex = 1;
-            this.btnQueryAllEMTs.Text = "All";
+            this.btnQueryAllEMTs.Text = "All (try me!)";
             this.btnQueryAllEMTs.UseVisualStyleBackColor = true;
             this.btnQueryAllEMTs.Click += new System.EventHandler(this.btnQueryAllEMTs_Click);
             // 
