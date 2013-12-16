@@ -49,7 +49,7 @@ namespace Reports911
 
         public static bool Bool()
         {
-            return rnd.Next(0, 1) > 0;
+            return rnd.Next(0, 100) > 50;
         }
         public static int Number(int min, int max)
         {
