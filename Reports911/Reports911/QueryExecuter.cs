@@ -7,62 +7,68 @@ using System.Text;
 
 namespace Reports911
 {
-    class QueryExecuter : IQueryExecuter
+    class QueryExecuter : AbstractExecuter
     {
-        public DataSet AllEmts()
+        public override DataSet AllEmts()
         {
             return _execute(QueryLibrary.GetAllEMTs());
         }
 
-        public DataSet AllEmtsOnScene()
+        public override DataSet AllEmtsOnScene()
         {
             return _execute(QueryLibrary.GetAllEMTsOnScene());
         }
 
-        public DataSet AllEmtsOffScene()
+        public override DataSet AllEmtsOffScene()
         {
             return _execute(QueryLibrary.GetAllEMTsOffScene());
         }
 
-        public DataSet AllEmtsForBaseStation(int baseStationId)
+        public override DataSet AllEmtsForBaseStation(int baseStationId)
         {
             return _execute(QueryLibrary.GetAllEMTsForBaseStation(baseStationId));
         }
 
-        public DataSet AllActiveIncidents()
+        public override DataSet AllActiveIncidents()
         {
             return _execute(QueryLibrary.GetAllActiveIncidents());
         }
 
-        public DataSet AllBaseStations()
+        public override DataSet AllBaseStations()
         {
             return _execute(QueryLibrary.GetAllBaseStations());
         }
 
-        public DataSet NumberOfActiveIncidentsPerBaseStation(int baseStationId)
+        public override DataSet NumberOfActiveIncidentsPerBaseStation(int baseStationId)
         {
             return _execute(QueryLibrary.GetNumberOfActiveIncidentsForABaseStation(baseStationId));
         }
 
-        public DataSet AllBaseStationsAndNumberOfEmtsOffScene()
+        public override DataSet AllBaseStationsAndNumberOfEmtsOffScene()
         {
             return _execute(QueryLibrary.GetAllBaseStationsAndNumberOfEMTsOffScene());
         }
 
-        public DataSet AllIncidents()
+        public override DataSet AllIncidents()
         {
             return _execute(QueryLibrary.GetAllIncidents());
         }
 
-        public DataSet AllActiveIncidentsForBaseStation(int baseStationId)
+        public override DataSet AllActiveIncidentsForBaseStation(int baseStationId)
         {
             return _execute(QueryLibrary.GetAllActiveIncidentsForBaseStation(baseStationId));
         }
 
-        public DataSet AllBaseStationsAndNumberOfActiveIncidents()
+        public override DataSet AllBaseStationsAndNumberOfActiveIncidents()
         {
             return _execute(QueryLibrary.GetAllBaseStationsAndNumberOfActiveIncidents());
         }
+
+
+
+        /*
+         * Privates
+         */
 
         private static DataSet _execute(string sql)
         {

@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="AbstractExecuter.cs" />
+    <Compile Include="DatabaseSeeder.cs" />
     <Compile Include="ErisDbContext.cs" />
     <Compile Include="IQueryExecuter.cs" />
     <Compile Include="QueryLibrary.cs" />

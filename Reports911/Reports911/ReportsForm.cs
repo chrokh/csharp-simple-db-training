@@ -14,7 +14,7 @@ namespace Reports911
 {
     public partial class ReportsForm : Form
     {
-        IQueryExecuter _actualExecuter = new QueryExecuter();
+        AbstractExecuter _actualExecuter = new QueryExecuter();
 
         public ReportsForm()
         {
@@ -32,73 +32,75 @@ namespace Reports911
             dtgrdReportOutput.DataMember = "PRIMARY";
         }
 
+
         private void btnQueryAllEMTs_Click(object sender, EventArgs e)
         {
-            _executeParameterless(_actualExecuter.AllEmts);
+            _execute(QueryType.ALL_EMTS);
         }
 
         private void btnQueryAllEMTsOnScene_Click(object sender, EventArgs e)
         {
-            _executeParameterless(_actualExecuter.AllEmtsOnScene);
+            _execute(QueryType.ALL_EMTS_ON_SCENE);
         }
 
         private void btnQueryAllEMTsFromBaseStation_Click(object sender, EventArgs e)
         {
-            _executeWithParameter(_actualExecuter.AllEmtsForBaseStation, txtBaseStationId.Text);
+            _execute(QueryType.ALL_EMTS_FOR_BASESTATION, txtBaseStationId.Text);
         }
 
         private void btnQueryNumberOfActiveIncidentsForBaseStation_Click(object sender, EventArgs e)
         {
-            _executeWithParameter(_actualExecuter.NumberOfActiveIncidentsPerBaseStation, txtBaseStationId.Text);
+            _execute(QueryType.NUMBER_OF_ACTIVE_INCIDENTS_PER_BASESTATION, txtBaseStationId.Text);
         }
 
         private void btnQueryActiveIncidentsForBaseStation_Click(object sender, EventArgs e)
         {
-            _executeWithParameter(_actualExecuter.AllActiveIncidentsForBaseStation, txtBaseStationId.Text);
+            _execute(QueryType.ALL_ACTIVE_INCIDENTS_FOR_BASESTATION, txtBaseStationId.Text);
         }
 
         private void btnAllBaseStationsAndNumberOfEMTsOffScene_Click(object sender, EventArgs e)
         {
-            _executeParameterless(_actualExecuter.AllBaseStationsAndNumberOfEmtsOffScene);
+            _execute(QueryType.ALL_BASESTATIONS_AND_NUMBER_OF_EMTS_OFF_SCENE);
         }
 
         private void btnQueryAllEMTsOffScene_Click(object sender, EventArgs e)
         {
-            _executeParameterless(_actualExecuter.AllEmtsOffScene);
+            _execute(QueryType.ALL_EMTS_OFF_SCENE);
         }
 
         private void btnQueryAllIncidents_Click(object sender, EventArgs e)
         {
-             _executeParameterless(_actualExecuter.AllIncidents);
+             _execute(QueryType.ALL_INCIDENTS);
         }
 
         private void btnQueryAllActiveIncidents_Click(object sender, EventArgs e)
         {
-            _executeParameterless(_actualExecuter.AllActiveIncidents);
+            _execute(QueryType.ALL_ACTIVE_INCIDENTS);
         }
 
         private void btnQueryAllBaseStations_Click(object sender, EventArgs e)
         {
-            _executeParameterless(_actualExecuter.AllBaseStations);
+            _execute(QueryType.ALL_BASESTATIONS);
         }
-
 
         private void btnQueryBaseStationsAndNumberOfActiveIncidents_Click(object sender, EventArgs e)
         {
-            _executeParameterless(_actualExecuter.AllBaseStationsAndNumberOfActiveIncidents);
+            _execute(QueryType.ALL_BASESTATIONS_AND_NUMBER_OF_ACTIVE_INCIDENTS);
         }
+
+
 
         /*
          * Helpers
          */
 
-        private void _executeWithParameter(Func<int, DataSet> actual, string val)
+        private void _execute(QueryType kind, string val)
         {
             int valueAsInt;
             if (Int32.TryParse(val, out valueAsInt))
             try
             {
-                    dtgrdReportOutput.DataSource = actual(valueAsInt);
+                    dtgrdReportOutput.DataSource = _actualExecuter.Execute(kind, valueAsInt);
             }
             catch (SqlCeException ex)
             {
@@ -108,11 +110,11 @@ namespace Reports911
                 MessageBox.Show("Please enter a numeric value");
         }
 
-        private void _executeParameterless(Func<DataSet> actual)
+        private void _execute(QueryType kind)
         {
             try
             {
-                dtgrdReportOutput.DataSource = actual();
+                dtgrdReportOutput.DataSource = _actualExecuter.Execute(kind);
             }
             catch (SqlCeException ex)
             {
