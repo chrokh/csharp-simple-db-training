@@ -98,7 +98,7 @@ namespace Reports911
                 MessageBox.Show(ex.Message);
             }
             else
-                MessageBox.Show("Please enter a BaseStation number");
+                MessageBox.Show("Please enter a numeric value");
         }
 
         private void _executeParameterless(Func<DataSet> actual)
