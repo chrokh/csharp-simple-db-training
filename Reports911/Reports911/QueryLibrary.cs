@@ -7,15 +7,15 @@ namespace Reports911
 {
     class QueryLibrary
     {
+
+        /*
+         * Emts
+         */
+
         public static string GetAllEMTs()
         {
             // Hi student, this is an example :)
             return "SELECT * FROM Emts";
-        }
-
-        public static string GetAllBaseStations()
-        {
-            return "WRITE QUERY HERE";
         }
 
         public static string GetAllEMTsOnScene()
@@ -28,6 +28,11 @@ namespace Reports911
             return "WRITE QUERY HERE";
         }
 
+
+        /*
+         * Single basestation
+         */
+
         public static string GetAllEMTsForBaseStation(int baseStationId)
         {
             return "WRITE QUERY HERE";
@@ -38,15 +43,35 @@ namespace Reports911
             return "WRITE QUERY HERE";
         }
 
+        public static string GetAllActiveIncidentsForBaseStation(int baseStationId)
+        {
+            return "WRITE QUERY HERE";
+        }
+
+
+        /*
+         * Basestations
+         */
+
+        public static string GetAllBaseStations()
+        {
+            return "WRITE QUERY HERE";
+        }
+
         public static string GetAllBaseStationsAndNumberOfEMTsOffScene()
         {
             return "WRITE QUERY HERE";
         }
 
-        public static string GetAllActiveIncidentsForBaseStation(int baseStationId)
+        public static string GetAllBaseStationsAndNumberOfActiveIncidents()
         {
             return "WRITE QUERY HERE";
         }
+
+
+        /*
+         * Incidents
+         */
 
         public static string GetAllIncidents()
         {
@@ -54,11 +79,6 @@ namespace Reports911
         }
 
         public static string GetAllActiveIncidents()
-        {
-            return "WRITE QUERY HERE";
-        }
-
-        public static string GetAllBaseStationsAndNumberOfActiveIncidents()
         {
             return "WRITE QUERY HERE";
         }
