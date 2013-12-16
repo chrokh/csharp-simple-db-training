@@ -22,8 +22,7 @@ namespace Reports911
 
             try
             {
-                var db = new ErisDbContext();
-                DatabaseManager.Seed(db);
+                new DatabaseSeeder(new ErisDbContext()).Seed();
             }
             catch(IOException e)
             {
