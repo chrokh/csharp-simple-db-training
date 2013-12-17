@@ -63,24 +63,5 @@ namespace Reports911
         {
             return _execute(QueryLibrary.GetAllBaseStationsAndNumberOfActiveIncidents());
         }
-
-
-
-        /*
-         * Privates
-         */
-
-        private static DataSet _execute(string sql)
-        {
-            using (SqlCeConnection connection = new SqlCeConnection(@"Data Source = eris911.sdf"))
-            {
-                using (SqlCeDataAdapter adapter = new SqlCeDataAdapter(sql, connection))
-                {
-                    DataSet resultSet = new DataSet();
-                    adapter.Fill(resultSet, "PRIMARY");
-                    return resultSet;
-                }
-            }
-        }
     }
 }

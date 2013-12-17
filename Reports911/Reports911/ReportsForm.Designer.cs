@@ -45,11 +45,16 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnQueryAllActiveIncidents = new System.Windows.Forms.Button();
             this.btnQueryAllIncidents = new System.Windows.Forms.Button();
+            this.dtgrdExpectedOutput = new System.Windows.Forms.DataGridView();
+            this.chkDoShowExpectedOutput = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkDoShowStudentOutput = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrdReportOutput)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdExpectedOutput)).BeginInit();
             this.SuspendLayout();
             // 
             // btnQueryAllEMTsFromBaseStation
@@ -106,10 +111,10 @@
             // dtgrdReportOutput
             // 
             this.dtgrdReportOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgrdReportOutput.Location = new System.Drawing.Point(247, 12);
+            this.dtgrdReportOutput.Location = new System.Drawing.Point(247, 49);
             this.dtgrdReportOutput.Name = "dtgrdReportOutput";
             this.dtgrdReportOutput.ReadOnly = true;
-            this.dtgrdReportOutput.Size = new System.Drawing.Size(644, 447);
+            this.dtgrdReportOutput.Size = new System.Drawing.Size(644, 223);
             this.dtgrdReportOutput.TabIndex = 5;
             // 
             // groupBox6
@@ -117,7 +122,7 @@
             this.groupBox6.Controls.Add(this.btnQueryAllEMTs);
             this.groupBox6.Controls.Add(this.btnQueryAllEMTsOffScene);
             this.groupBox6.Controls.Add(this.btnQueryAllEMTsOnScene);
-            this.groupBox6.Location = new System.Drawing.Point(30, 12);
+            this.groupBox6.Location = new System.Drawing.Point(12, 12);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(198, 112);
             this.groupBox6.TabIndex = 3;
@@ -139,7 +144,7 @@
             this.groupBox1.Controls.Add(this.btnQueryBaseStationsAndNumberOfActiveIncidents);
             this.groupBox1.Controls.Add(this.btnAllBaseStationsAndNumberOfEMTsOffScene);
             this.groupBox1.Controls.Add(this.btnQueryAllBaseStations);
-            this.groupBox1.Location = new System.Drawing.Point(30, 254);
+            this.groupBox1.Location = new System.Drawing.Point(12, 254);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(198, 112);
             this.groupBox1.TabIndex = 6;
@@ -172,7 +177,7 @@
             this.groupBox2.Controls.Add(this.btnQueryAllEMTsFromBaseStation);
             this.groupBox2.Controls.Add(this.btnQueryNumberOfActiveIncidentsForBaseStation);
             this.groupBox2.Controls.Add(this.btnQueryActiveIncidentsForBaseStation);
-            this.groupBox2.Location = new System.Drawing.Point(30, 130);
+            this.groupBox2.Location = new System.Drawing.Point(12, 130);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(198, 118);
             this.groupBox2.TabIndex = 7;
@@ -200,7 +205,7 @@
             // 
             this.groupBox5.Controls.Add(this.btnQueryAllActiveIncidents);
             this.groupBox5.Controls.Add(this.btnQueryAllIncidents);
-            this.groupBox5.Location = new System.Drawing.Point(30, 372);
+            this.groupBox5.Location = new System.Drawing.Point(12, 372);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(200, 87);
             this.groupBox5.TabIndex = 9;
@@ -227,14 +232,61 @@
             this.btnQueryAllIncidents.UseVisualStyleBackColor = true;
             this.btnQueryAllIncidents.Click += new System.EventHandler(this.btnQueryAllIncidents_Click);
             // 
+            // dtgrdExpectedOutput
+            // 
+            this.dtgrdExpectedOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgrdExpectedOutput.Location = new System.Drawing.Point(247, 302);
+            this.dtgrdExpectedOutput.Name = "dtgrdExpectedOutput";
+            this.dtgrdExpectedOutput.ReadOnly = true;
+            this.dtgrdExpectedOutput.Size = new System.Drawing.Size(644, 157);
+            this.dtgrdExpectedOutput.TabIndex = 5;
+            // 
+            // chkDoShowExpectedOutput
+            // 
+            this.chkDoShowExpectedOutput.AutoSize = true;
+            this.chkDoShowExpectedOutput.Checked = true;
+            this.chkDoShowExpectedOutput.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDoShowExpectedOutput.Location = new System.Drawing.Point(247, 280);
+            this.chkDoShowExpectedOutput.Name = "chkDoShowExpectedOutput";
+            this.chkDoShowExpectedOutput.Size = new System.Drawing.Size(164, 17);
+            this.chkDoShowExpectedOutput.TabIndex = 10;
+            this.chkDoShowExpectedOutput.Text = "Show expected output below";
+            this.chkDoShowExpectedOutput.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(247, 466);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(535, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Hopefully no errors have snuck into the example outputs, but you never know. So b" +
+    "e sure to also use your brain!";
+            // 
+            // chkDoShowStudentOutput
+            // 
+            this.chkDoShowStudentOutput.AutoSize = true;
+            this.chkDoShowStudentOutput.Checked = true;
+            this.chkDoShowStudentOutput.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDoShowStudentOutput.Location = new System.Drawing.Point(247, 26);
+            this.chkDoShowStudentOutput.Name = "chkDoShowStudentOutput";
+            this.chkDoShowStudentOutput.Size = new System.Drawing.Size(223, 17);
+            this.chkDoShowStudentOutput.TabIndex = 12;
+            this.chkDoShowStudentOutput.Text = "Show the output of my own queries below";
+            this.chkDoShowStudentOutput.UseVisualStyleBackColor = true;
+            // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 468);
+            this.ClientSize = new System.Drawing.Size(901, 489);
+            this.Controls.Add(this.chkDoShowStudentOutput);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chkDoShowExpectedOutput);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dtgrdExpectedOutput);
             this.Controls.Add(this.dtgrdReportOutput);
             this.Controls.Add(this.groupBox6);
             this.Name = "ReportsForm";
@@ -245,7 +297,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgrdExpectedOutput)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -268,6 +322,10 @@
         private System.Windows.Forms.Button btnQueryAllIncidents;
         private System.Windows.Forms.Button btnQueryAllActiveIncidents;
         private System.Windows.Forms.Button btnQueryActiveIncidentsForBaseStation;
+        private System.Windows.Forms.DataGridView dtgrdExpectedOutput;
+        private System.Windows.Forms.CheckBox chkDoShowExpectedOutput;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkDoShowStudentOutput;
     }
 }
 

@@ -15,6 +15,7 @@ namespace Reports911
     public partial class ReportsForm : Form
     {
         AbstractExecuter _actualExecuter = new QueryExecuter();
+        AbstractExecuter _fakeExecuter = new FakeExecuter();
 
         public ReportsForm()
         {
@@ -30,6 +31,7 @@ namespace Reports911
             }
 
             dtgrdReportOutput.DataMember = "PRIMARY";
+            dtgrdExpectedOutput.DataMember = "PRIMARY";
         }
 
 
@@ -98,27 +100,79 @@ namespace Reports911
         {
             int valueAsInt;
             if (Int32.TryParse(val, out valueAsInt))
-            try
             {
-                    dtgrdReportOutput.DataSource = _actualExecuter.Execute(kind, valueAsInt);
-            }
-            catch (SqlCeException ex)
-            {
-                MessageBox.Show(ex.Message);
+                if (chkDoShowExpectedOutput.Checked)
+                {
+                    try
+                    {
+                        dtgrdExpectedOutput.Visible = true;
+                        dtgrdExpectedOutput.DataSource = _fakeExecuter.Execute(kind, valueAsInt);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Could not show expected example output. Sorry :) \r\n\r\nError: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    dtgrdExpectedOutput.Visible = false;
+                }
+                if (chkDoShowStudentOutput.Checked)
+                {
+                    try
+                    {
+                        dtgrdReportOutput.Visible = true;
+                        dtgrdReportOutput.DataSource = _actualExecuter.Execute(kind, valueAsInt);
+                    }
+                    catch (SqlCeException ex)
+                    {
+                        MessageBox.Show("The error when running your query, student, was: \r\n\r\n" + ex.Message);
+                    }
+                }
+                else
+                {
+                    dtgrdReportOutput.Visible = false;
+                }
             }
             else
+            {
                 MessageBox.Show("Please enter a numeric value");
+            }
         }
 
         private void _execute(QueryType kind)
         {
-            try
+            if (chkDoShowExpectedOutput.Checked)
             {
-                dtgrdReportOutput.DataSource = _actualExecuter.Execute(kind);
+                try
+                {
+                    dtgrdExpectedOutput.Visible = true;
+                    dtgrdExpectedOutput.DataSource = _fakeExecuter.Execute(kind);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not show expected example output. Sorry :) \r\n\r\nError: " + ex.Message);
+                }
             }
-            catch (SqlCeException ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                dtgrdExpectedOutput.Visible = false;
+            }
+            if (chkDoShowStudentOutput.Checked)
+            {
+                try
+                {
+                    dtgrdReportOutput.Visible = true;
+                    dtgrdReportOutput.DataSource = _actualExecuter.Execute(kind);
+                }
+                catch (SqlCeException ex)
+                {
+                    MessageBox.Show("The error when running your query, student, was: \r\n\r\n" + ex.Message);
+                }
+            }
+            else
+            {
+                dtgrdReportOutput.Visible = false;
             }
         }
     }

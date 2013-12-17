@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Data.SqlServerCe;
 
 namespace Reports911
 {
@@ -50,6 +51,19 @@ namespace Reports911
             funcs.Add(QueryType.ALL_ACTIVE_INCIDENTS_FOR_BASESTATION, AllActiveIncidentsForBaseStation);
             funcs.Add(QueryType.NUMBER_OF_ACTIVE_INCIDENTS_PER_BASESTATION, NumberOfActiveIncidentsPerBaseStation);
             return funcs[kind];
+        }
+
+        internal static DataSet _execute(string sql)
+        {
+            using (SqlCeConnection connection = new SqlCeConnection(@"Data Source = eris911.sdf"))
+            {
+                using (SqlCeDataAdapter adapter = new SqlCeDataAdapter(sql, connection))
+                {
+                    DataSet resultSet = new DataSet();
+                    adapter.Fill(resultSet, "PRIMARY");
+                    return resultSet;
+                }
+            }
         }
     }
 }
