@@ -16,28 +16,42 @@ namespace Reports911
     {
         private static Random rnd = new Random();
         private static List<string> _basestation_names = new List<string>(){
-            "Ekonomikum",
-            "Matematikum",
-            "Uppsala Slott",
-            "Domkyrkan",
-            "Pollacksbacken",
-            "Engelska parken",
-            "SLU"
+            "BS:Ekonomikum",
+            "BS:Matematikum",
+            "BS:Uppsala Slott",
+            "BS:Domkyrkan",
+            "BS:Pollacksbacken",
+            "BS:Engelska parken",
+            "BS:SLU",
+            "BS:Konserthuset",
+            "BS:Gamla stan",
+            "BS:Brandstationen",
+            "BS:Polisstationen",
+            "BS:Ambulansstationen"
         };
         private static List<string> _emt_names = new List<string>(){
-            "Räddningspatrullen",
-            "Hundpatrullen",
-            "Gosskören",
-            "Bagarna",
-            "Universitetsutryckningen"
+            "EMT:Räddningspatrullen",
+            "EMT:Hundpatrullen",
+            "EMT:Gosskören",
+            "EMT:Bagarna",
+            "EMT:Universitetsutryckningen",
+            "EMT:Nyan Cat",
+            "EMT:Team Alpha",
+            "EMT:Dansbandsgänget",
+            "EMT:Brandkåren",
+            "EMT:Potatisgrisarna"
         };
         private static List<string> _incident_descriptions = new List<string>(){
-            "En hund har fastnat i ett träd!",
-            "Hjälp det brinner!",
-            "Det är ett bankrån!",
-            "Omg någon rånar banken",
-            "Banken, banken, banken!",
-            "Det brinner i grannhuset"};
+            "I:En hund har fastnat i ett träd!",
+            "I:Hjälp det brinner!",
+            "I:Det är ett bankrån!",
+            "I:Omg någon rånar banken",
+            "I:Banken, banken, banken!",
+            "I:Det brinner i grannhuset",
+            "I:Elden i grannhuset blir bara större",
+            "I:Hjälp hjälp hjälp!",
+            "I:Solidariteten är stulen!",
+            "I:De kopierade min data och jag fick den aldrig tillbaka!"};
 
 
         /*
