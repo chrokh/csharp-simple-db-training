@@ -9,7 +9,7 @@ namespace Reports911
     {
 
         /*
-         * Emts
+         * Emt queries
          */
 
         public static string GetAllEMTs()
@@ -38,7 +38,7 @@ namespace Reports911
 
 
         /*
-         * Single basestation
+         * Single basestation queries
          */
 
         public static string GetAllEMTsForBaseStation(int baseStationId)
@@ -58,7 +58,7 @@ namespace Reports911
 
 
         /*
-         * Basestations
+         * All basestations queries
          */
 
         public static string GetAllBaseStations()
@@ -78,7 +78,7 @@ namespace Reports911
 
 
         /*
-         * Incidents
+         * Incidents queries
          */
 
         public static string GetAllIncidents()
