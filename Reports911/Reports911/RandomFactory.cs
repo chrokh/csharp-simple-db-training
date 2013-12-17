@@ -85,6 +85,10 @@ namespace Reports911
         {
             return rnd.Next(min, max);
         }
+        public static int Number()
+        {
+            return rnd.Next();
+        }
 
 
         /*

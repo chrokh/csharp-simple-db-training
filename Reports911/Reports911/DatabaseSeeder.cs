@@ -58,11 +58,23 @@ namespace Reports911
 
         private void _connectEmtsToIncidents()
         {
-            for (int i = 0; i < _emts.Count / 2; i++)
+            // Triplicate each incident
+            List<Incident> incidents = _incidents.Concat(_incidents.Concat(_incidents.ToList()).ToList()).ToList();
+            incidents = incidents.OrderBy(item => RandomFactory.Number()).ToList();
+
+            // Keep a random set, but at the most as many as original uniques
+            while (incidents.Count > RandomFactory.Number(1, _incidents.Count))
+                incidents.RemoveAt(RandomFactory.Number(0, incidents.Count - 1));
+
+            // Insert
+            while(incidents.Count > 0)
             {
-                Emt e = _emts[i];
-                Incident ii = _incidents[RandomFactory.Number(0, _incidents.Count -1)];
-                e.Incidents = new List<Incident> { ii };
+                Incident ii = incidents[0];
+                Emt e = _emts[RandomFactory.Number(0, _emts.Count-1)];
+                if(e.Incidents == null)
+                    e.Incidents = new List<Incident>();
+                e.Incidents.Add(ii);
+                incidents.Remove(ii);
             }
         }
 
