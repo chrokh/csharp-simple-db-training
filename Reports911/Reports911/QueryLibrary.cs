@@ -14,18 +14,26 @@ namespace Reports911
 
         public static string GetAllEMTs()
         {
-            // Hi student, this is an example :)
+            /*
+             * Hi student,
+             * this is an example of how you need to 
+             * implement the body of these functions.
+             * 
+             * Basically, all you need to do is express
+             * the proper SQL for each of the methods
+             * Like the line below... :)
+             */
             return "SELECT * FROM Emts";
         }
 
         public static string GetAllEMTsOnScene()
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_COLUMNS_OF_ALL_EMTS_THAT_ARE_CURRENTLY_ASSOCIATED_WITH_AN_INCIDENT";
         }
 
         public static string GetAllEMTsOffScene()
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_COLUMNS_OF_ALL_EMTS_THAT_ARE_CURRENTLY_NOT_ASSOCIATED_WITH_ANY_INCIDENT";
         }
 
 
@@ -35,17 +43,17 @@ namespace Reports911
 
         public static string GetAllEMTsForBaseStation(int baseStationId)
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_COLUMNS_FOR_ALL_EMTS_STATIONED_AT_THE_BASESTATION";
         }
 
         public static string GetNumberOfActiveIncidentsForABaseStation(int baseStationId)
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_COLUMNS_FOR_EACH_BASESTATION_AND_THE_NUMBER_OF_ACTIVE_INCIDENTS_ASSOCIATED_VIA_EMTS_WITH_THE_BS";
         }
 
         public static string GetAllActiveIncidentsForBaseStation(int baseStationId)
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_COLUMNS_FOR_EACH_BASESTATION_AND ALL_COLUMNS_FOR_ALL_ACTIVE_INCIDENTS_ASSOCIATED_VIA_EMTS_WITH_THE_BS";
         }
 
 
@@ -55,17 +63,17 @@ namespace Reports911
 
         public static string GetAllBaseStations()
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_FIELDS_FOR_ALL_BASESTATIONS";
         }
 
         public static string GetAllBaseStationsAndNumberOfEMTsOffScene()
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_THE_COLUMNS_ID_NAME_AND_THE_NUMBER_OF_AVAILABLE_EMTS_FOR_EACH_BASESTATION";
         }
 
         public static string GetAllBaseStationsAndNumberOfActiveIncidents()
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_THE_COLUMNS_ID_NAME_AND_THE_NUMBER_OF_ACTIVE_INCIDENTS_FOR_EACH_BASESTATION";
         }
 
 
@@ -75,12 +83,12 @@ namespace Reports911
 
         public static string GetAllIncidents()
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_COLUMNS_FOR_ALL_INCIDENTS";
         }
 
         public static string GetAllActiveIncidents()
         {
-            return "WRITE QUERY HERE";
+            return "A_QUERY_THAT_RETURNS_ALL_COLUMNS_FOR_ALL_ACTIVE_INCIDENTS";
         }
     }
 }
