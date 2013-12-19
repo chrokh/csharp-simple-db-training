@@ -38,7 +38,7 @@ namespace Reports911
         {
             while(RandomFactory.HasMoreOf(RandomFactoryReturnType.INCIDENT))
                 _incidents.Add(new Incident{
-                    Active = RandomFactory.Bool(),
+                    Active = RandomFactory.Number(0, 100) > 33,
                     Description = RandomFactory.NextOf(RandomFactoryReturnType.INCIDENT)
                 });
         }
