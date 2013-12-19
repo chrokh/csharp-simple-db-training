@@ -17,14 +17,11 @@ namespace Reports911
         private static Random rnd = new Random();
         private static List<string> _basestation_names = new List<string>(){
             "BS:Ekonomikum",
-            "BS:Matematikum",
             "BS:Uppsala Slott",
-            "BS:Domkyrkan",
             "BS:Pollacksbacken",
             "BS:Engelska parken",
             "BS:SLU",
             "BS:Konserthuset",
-            "BS:Gamla stan",
             "BS:Brandstationen",
             "BS:Polisstationen",
             "BS:Ambulansstationen"
