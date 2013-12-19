@@ -14,18 +14,22 @@ namespace Reports911
 {
     public partial class ReportsForm : Form
     {
-        AbstractExecuter _actualExecuter = new QueryExecuter();
-        AbstractExecuter _fakeExecuter = new FakeExecuter();
+        AbstractExecuter _actualExecuter;
+        AbstractExecuter _fakeExecuter;
 
         public ReportsForm()
         {
             InitializeComponent();
 
+            
             try
             {
-                new DatabaseSeeder(new ErisDbContext()).Seed();
+                ErisDbContext db = new ErisDbContext();
+                new DatabaseSeeder(db).Seed();
+                _actualExecuter = new QueryExecuter(db);
+                _fakeExecuter = new FakeExecuter(db);
             }
-            catch(IOException e)
+            catch(Exception e)
             {
                 MessageBox.Show("Error: Could not connect to db. Hey student, are you sure the database file is not open anywhere else (even Visual Studio Server Explorer will cause problems)? \r\n\r\n("+ e.Message + ")");
             }

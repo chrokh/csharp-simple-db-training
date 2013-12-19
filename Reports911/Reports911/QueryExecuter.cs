@@ -9,6 +9,13 @@ namespace Reports911
 {
     class QueryExecuter : AbstractExecuter
     {
+        private ErisDbContext _context;
+
+        public QueryExecuter(ErisDbContext context)
+        {
+            _context = context;
+        }
+
         public override DataSet AllEmts()
         {
             return _execute(QueryLibrary.GetAllEMTs());

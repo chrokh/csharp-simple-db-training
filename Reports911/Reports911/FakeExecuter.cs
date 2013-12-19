@@ -11,8 +11,12 @@ namespace Reports911
 {
     class FakeExecuter : AbstractExecuter
     {
-        ErisDbContext _context = new ErisDbContext();
+        private ErisDbContext _context;
 
+        public FakeExecuter(ErisDbContext context)
+        {
+            _context = context;
+        }
         public override DataSet AllEmts()
         {
             return _execute(FakeQueryLibrary.GetAllEMTs());
