@@ -39,7 +39,19 @@ namespace Reports911
             "EMT:Team Alpha",
             "EMT:Dansbandsgänget",
             "EMT:Brandkåren",
-            "EMT:Potatisgrisarna"
+            "EMT:Potatisgrisarna",
+            "EMT:Hypercats",
+            "EMT:Hyperhats",
+            "EMT:Cyberhacks",
+            "EMT:Pelargonerna",
+            "EMT:Hipstergänget",
+            "EMT:Ekorrarnas ekstrateam",
+            "EMT:Datahackers",
+            "EMT:Lata hackers",
+            "EMT:Pingvinerna",
+            "EMT:Delfinerna",
+            "EMT:Paddorna",
+            "EMT:Girafferna"
         };
         private static List<string> _incident_descriptions = new List<string>(){
             "I:En hund har fastnat i ett träd!",
