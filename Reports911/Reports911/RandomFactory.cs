@@ -63,7 +63,19 @@ namespace Reports911
             "I:Elden i grannhuset blir bara större",
             "I:Hjälp hjälp hjälp!",
             "I:Solidariteten är stulen!",
-            "I:De kopierade min data och jag fick den aldrig tillbaka!"};
+            "I:De kopierade min data och jag fick den aldrig tillbaka!",
+            "I:Datasalen är stulen!",
+            "I:Julen är stulen!",
+            "I:Jag är insnöad!",
+            "I:Grannens hus har snöat in",
+            "I:Skolan har snöat in och dörrarna går inta att öpnna",
+            "I:Jag är fastfrusen i min bil",
+            "I:En man i batmankostym hävdar att han är catwoman",
+            "I:En kvinna i catwomandräkt hävdar att hon är batman",
+            "I:Jag tror att zombieapokalypsen har börjat...",
+            "I:Braaaaaaaains....",
+            "I:Domedagen är här!"
+        };
 
 
         /*
